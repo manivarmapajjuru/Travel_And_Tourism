@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image and Information</title>
+        <style>
+            /* CSS for the container */
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* Split the container into two columns */
+                
+                height: 100vh; /* 100% of the viewport height */
+                overflow: hidden;
+            }
+            
+            /* CSS for the image */
+            .image {
+                background: url('1.jpg') no-repeat center center;
+                background-size: cover; /* Ensure the image covers the entire container */
+                height: 100%; /* 100% of the container's height */
+            }
+
+            /* CSS for the information */
+            .information {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                background-color: #f5f5f5;
+                height: 100%; /* 100% of the container's height */
+                position: relative; /* Add position property for step numbers and progress line */
+            }
+
+            /* CSS for the hidden information steps */
+            .step {
+                display: none;
+                text-align: center; 
+            }
+            .main{
+                text-align: center;
+                font-size:30px;	
+                padding-right: 50px;
+            }
+            .main1{
+                text-align: left;
+                font-size:30px;	
+                padding-left: 150px;
+                margin-bottom: 150px;
+            }
+            
+            #searchForm {
+                 display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 150px;
+            }
+            #destinationSearch {
+                width: 600px; /* Adjust the width as needed */
+                height: 50px; /* Adjust the height as needed */
+                border-radius: 15px;
+                margin-top: -110px; /* Adjust the margin as needed */
+            }
+            #step2Form {
+                display: flex; /* Use flexbox to display labels horizontally */
+                flex-wrap: wrap; /* Allow labels to wrap to the next line if necessary */
+                justify-content: flex-start;
+                
+            }
+            #step2Form label {
+                font-size: 15px;
+                text-align: center;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: -120px; /* Adjust the margin between labels */
+    margin-bottom: 10px;
+    width: calc(20% - 10px); /* Divide the available space into thirds */
+    margin-left: 150px;
+            }
+            .main2{
+                text-align: left;
+                font-size:30px;	
+                margin-top: 40px;
+                margin-left: 40px;
+            }
+            /* Add this CSS to style the duration options in a row */
+            .duration-options {
+                display: flex;
+                justify-content: space-between;
+                margin-top: -120px;
+                margin-left: 80px;
+            }
+            /* Style for the duration options */
+            .duration-options {
+                display: flex; /* Display duration options in a row */
+                flex-wrap: wrap; /* Allow options to wrap to the next line if needed */
+                margin-left: 110px;
+            }
+
+            .duration-option {
+    
+                text-align: center;
+                font-size: 15px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                margin: 2px; /* Adjust the margin between options */
+                cursor: pointer;             
+            }
+
+            .selected-duration {
+                border: 2px solid #007bff; /* Add a border and change its color */
+            }
+
+            /* Style for month options */
+           .months-options {
+                display: inline-flex; /* Display month options in a row */
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-left: 10px 0;
+                margin-left: 110px;
+    
+            }
+
+            .month-box {
+                flex-basis: calc(20% - 10px); /* Adjust the percentage as needed */
+                text-align: center;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px; /* Adjust the spacing between month options */
+                width: 30px; /* Adjust the width of the boxes */
+                height: 40px; /* Adjust the height of the boxes */
+    
+            }
+
+            .month-box img {
+                width: 30px; /* Adjust the width of the calendar icon as needed */
+                height: 30px; /* Adjust the height of the calendar icon as needed */
+                margin-bottom: 3px;
+                margin-left: 3px;
+            }
+
+            .month-box span {
+                font-size: 12px; /* Reduce the font size for the month text */
+   
+            }
+            .selected-month {
+                border-radius: 15px; /* Apply border radius to make it round */
+                border: 2px solid #007bff; /* Add a border and change its color */
+            }
+            /* CSS for the column-form class */
+            .column-form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 110px;
+            }
+            .main3{
+                font-size:30px;	
+                margin-top: 60px;
+                margin-right: 140px;
+                
+            }
+            .input-field {
+    width: 500px; /* Set the desired width for the input field */
+    font-size: 16px; /* Set the desired font size for the input text */
+    margin-bottom: 10px; /* Add margin for spacing */
+    border-radius: 20px;
+    margin-top: -15px;
+    height: 40px;
+}
+/* CSS for the search-bar class */
+.search-bar {
+    width: 500px; /* Set the desired width for the search bar */
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -15px;
+}
+
+/* Add any additional styling as needed */
+
+            .left-aligned-content {
+                text-align: left;
+                margin-left: 100px;
+            }
+            .information label {
+                text-align: left;
+                font-size: 20px;
+                padding-top:10px;
+                margin-bottom: 20px;
+                
+            }
+            .information p{
+            font-size:17px;
+            padding-left:40px;
+            width: auto;
+            padding-bottom:10px;
+            margin-top: 20px;
+                
+            }
+            .information hr{
+                margin-right:100px;
+                border: none;
+                border-top: 1px dotted #000;
+                        
+            }
+            .information input[type="radio"] {
+                margin-left: 1px; /* Reset the left margin to align radio buttons to the left */
+            }
+
+            /* CSS for the navigation buttons container */
+            .navigation-buttons {
+                display: flex;
+                justify-content: flex-end; /* Make the buttons appear at each end */
+                margin-top: 20px; /* Add margin at the top for spacing */
+                padding-left: 600px;
+            }
+
+            /* CSS for the navigation buttons */
+            .navigation-button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-left: 10px;
+            }
+
+            .navigation-button:hover {
+                background-color: #0056b3;
+            }
+            .submit-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.submit-button-container button {
+    margin-left: 10px; /* Adjust the margin as needed to space the buttons */
+}
+.modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+/* CSS for the close (X) button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* CSS for the submit button */
+.submit-button {
+    position: relative;
+    top: 10px;
+    right: -220px; /* Adjust the right distance as needed */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+
+            .top {
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    display: flex;
+    flex-direction: row; /* Display circles horizontally */
+    align-items: center;
+}
+
+.top .st {
+    display: flex;
+    flex-direction: row; /* Display circles horizontally */
+    align-items: center;
+}
+
+.top .st .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 50%;
+    border: 4px solid lightgreen;
+    color: lightcyan;
+    background-color: white;
+    margin-right: -20px; /* Add spacing between circles */
+    position: relative; /* Add relative positioning to make z-index work */
+    z-index: 2; /* Set a higher z-index to make the circles appear above the progress bar line */
+}
+.top .st .circle {
+    /* Your existing circle styles */
+    background-color: white;
+    color: orange;
+    cursor: pointer;
+}
+
+.top .st .circle.highlighted {
+    background-color: orange;
+    color: white;
+}
+.top .st .progress-line {
+    width: 80px; /* Adjust the width of the progress line as needed */
+    height: 2px; /* Adjust the height of the progress line as needed */
+    background-color: orange; /* Default color of the progress line */
+    margin-right: 2px; /* Adjust the spacing between the circles and the progress line */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Style the progress line when it's active (highlighted) */
+.top .st .progress-line.active {
+    background-color: orange; /* Change the color to highlight it */
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="image"></div>
+            <div class="information">
+                <!-- Step 1 -->
+                <div class="top">
+                    <div class="st">
+                        <span class="circle step1">1</span>
+                        <span class="progress-line"></span> 
+                        <span class="circle step2">2</span>
+                        <span class="progress-line"></span> 
+                        <span class="circle step3">3</span>
+                        <span class="progress-line"></span> 
+                        <span class="circle step3">4</span>
+                        <div class="progress-bar">
+                            <span class="indicator"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" id="step1">
+                    <div class="step-number"></div>
+                    <h2 class="main" >How can our local experts help you?</h2>
+                    <div class="left-aligned-content">
+                        <form id="step1Form">
+                            <label for="personalized">
+                                <input type="radio" name="tripType" value="personalized" id="personalized">
+                                Personalized Trip Plan
+                            </label>
+                            <p>Your step-by-step itinerary, tailored to your preferences, for you to book and follow on your own.</p>
+                            <hr>
+                            <label for="fullyArranged">
+                                <input type="radio" name="tripType" value="fullyArranged" id="fullyArranged">
+                                Fully Arranged Trip
+                            </label>
+                            <p>Your local travel expert will research, plan and book all hotels, transport and excursions, as well as be on call 24/7 during the trip.</p>
+                            <hr>
+                            <label for="privateGuide">
+                                <input type="radio" name="tripType" value="privateGuide" id="privateGuide">
+                                Trip With Private Guide
+                            </label>
+                            <p>All the benefits of "Fully Arranged Trip" option, PLUS you'll travel with an experienced local guide.</p>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step" id="step2">
+                    <div class="step-number"></div>
+                    <h2 class="main1">Where do you want to go?</h2>
+                    <form id="searchForm">
+                        <input type="text" list="destinations" id="destinationSearch" placeholder="Search for a destination...">
+                        <datalist id="destinations">
+                            <option value="Meghalaya">
+                            <option value="Goa">
+                            <option value="Kashmir">
+                            <option value="West Bengal">
+                            <option value="Shimla">
+                            <option value="Assam">
+                            <option value="Nepal">
+                            <!-- Add more destination options as needed -->
+                        </datalist>
+                    </form>
+                    <p style="font-size:20px;text-align:left;padding-left:150px;">Our popular destinations:</p>
+                    <form id="step2Form">
+                        <label for="chileArgentina">Meghalaya</label><br>
+                        <label for="vietnamCambodia">Goa</label><br>
+                        <label for="kenyaTanzania">Kashmir</label><br>
+                        <label for="englandScotland">England & Scotland</label><br>
+                        <label for="singaporeIndonesia">Singapore & Indonesia</label><br>
+                    </form> 
+                   
+                </div>
+                <!-- Step 3 -->
+                <div class="step" id="step3">
+                    <div class="step-number"></div>
+                    <h2 class="main2">When do you want to go?</h2>
+                    <h3 style="margin-bottom: 130px;text-align:left;padding-left:80px;margin-top:30px;">Duration:</h3>
+                    <div class="duration-options">
+                        <div class="duration-option" id="lessThanWeek" onclick="toggleDurationSelection('lessThanWeek')">Less than a week</div>
+                        <div class="duration-option" id="1Week" onclick="toggleDurationSelection('1Week')">Week</div>
+                        <div class="duration-option" id="2Weeks" onclick="toggleDurationSelection('2Weeks')">2 Weeks</div>
+                        <div class="duration-option" id="moreThan2Weeks" onclick="toggleDurationSelection('moreThan2Weeks')">More than 2 Weeks</div>
+                    </div>
+                    
+                    <h3 style="text-align:left;padding-left:80px;margin-top:10px;">Months:</h3>
+                    <p style="text-align:left;padding-left:100px;">Select the months you wish to travel. Dates can be changed at any time.</p>
+                        <div class="months-options">
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Jan 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Feb 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Mar 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Apr 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>May 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Jun 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Jul 2023</span>
+                            </label>
+                            <label for="sep2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Aug 2023</span>
+                            </label>
+                            <label for="oct2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Sep 2023</span>
+                            </label>
+                            <label for="nov2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Oct 2023</span>
+                            </label>
+                            <label for="dec2023" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Nov 2023</span>
+                            </label>
+                            <label for="jan2024" class="month-box" onclick="toggleMonthSelection(this)">
+                                <img src="calendar.png" alt="Calendar Icon">
+                                <span>Dec 2024</span>
+                            </label>
+                            <!-- Add more month options as needed -->
+                        </div>
+                    <!-- Months options here -->
+                </div>
+                
+                <!-- Step 4: Contact Details -->
+<div class="step" id="step4">
+    <div class="step-number"></div>
+    <h2 class="main3">Provide your contact details</h2>
+    <form id="contactForm" class="column-form">
+        <!-- First Name -->
+        <label for="Name" style="margin-top: -15px;font-size: 20px;">Name</label>
+        <input type="text" id="Name" class="input-field" placeholder="Type your name">
+
+        <!-- Last Name -->
+        <label for="email"style="font-size: 20px;">Email</label>
+        <input type="text" id="email"  class="input-field" placeholder="Enter your mail">
+
+        <!-- Where do you live? (Search Bar) -->
+        <label for="location" style="font-size: 20px;">Where do you live?</label>
+        <input type="text" id="location" list="locations" placeholder="Your location" class="search-bar">
+        <datalist id="locations">
+            <option value="India">
+            <option value="United States">
+            <option value="Canada">
+            <!-- Add more location options as needed -->
+        </datalist>
+
+        <!-- Prefer a call? (Dropdown) -->
+        <label for="phoneNumber" style="font-size: 20px;">Prefer a call? (optional)</label>
+        <div class="phone-input">
+             <input type="text" id="phoneNumber" class="input-field" placeholder="+91 Phone number" oninput="updatePhoneNumber()">
+        </div>
+
+        <p style="margin-top:15px;font-size: 20px;margin-left:-35px;">Why phone number?</p>
+        <p style="text-align: left; margin-top:-15px;font-size: 17px;margin-left:-33px;">Your phone number lets our local specialists reach you via call or text to discuss your exciting trip.</p>
+    </form>
+</div>
+
+<div id="reviewModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeReviewModal()">&times;</span>
+        <h2>Your Selection:</h2>
+        <div id="reviewDetails">
+            <!-- Selected options will be displayed here -->
+
+
+        </div>
+        <button id="submitReview" onclick="submitAndNavigateHome()" class="submit-button">Submit</button>
+    </div>
+</div>
+                    <!-- Navigation Buttons -->
+                    <div class="navigation-buttons">
+                        <button class="navigation-button" id="prevButton" onclick="prevStep()">Previous</button>
+                        <div class="submit-button-container">
+                            <button class="navigation-button" id="reviewButton" onclick="reviewSelections()">Review</button>
+                            <button class="navigation-button" id="nextButton" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                
+            </div>
+            
+        <script>
+            let currentStep = 1;
+            function toggleDurationSelection(durationId) {
+                const durationElement = document.getElementById(durationId);
+                if (durationElement.classList.contains('selected-duration')) {
+                        durationElement.classList.remove('selected-duration');
+                } else {
+                const allDurations = document.querySelectorAll('.duration-option'); // Get all duration options
+                allDurations.forEach((duration) => {
+                        duration.classList.remove('selected-duration'); // Remove the class from all durations
+                });
+                        durationElement.classList.add('selected-duration'); // Add the class to the clicked duration
+                }
+            }
+            
+            function toggleMonthSelection(monthElement) {
+                 if (monthElement.classList.contains('selected-month')) {
+                      monthElement.classList.remove('selected-month');
+                 } else {
+                const allMonths = document.querySelectorAll('.month-box'); // Get all month boxes
+                allMonths.forEach((month) => {
+                      month.classList.remove('selected-month'); // Remove the class from all months
+                });
+                monthElement.classList.add('selected-month'); // Add the class to the clicked month
+              }
+            }
+            function updatePhoneNumber() {
+    const phoneNumberInput = document.getElementById("phoneNumber");
+    if (!phoneNumberInput.value.startsWith("+91")) {
+        phoneNumberInput.value = "+91";
+    }
+}
+
+function updateSteps() {
+    const steps = document.querySelectorAll(".step");
+    const circles = document.querySelectorAll(".circle");
+    const progressBar = document.querySelector(".indicator");
+    const prevButton = document.getElementById("prevButton");
+    const nextButton = document.getElementById("nextButton");
+    const submitButton = document.getElementById("submitButton");
+
+    steps.forEach((step, index) => {
+        if (index + 1 === currentStep) {
+            step.style.display = "block";
+            circles[index].classList.add("highlighted");
+        } else {
+            step.style.display = "none";
+            circles[index].classList.remove("highlighted");
+        }
+    });
+
+    if (currentStep === 1) {
+        prevButton.style.display = "none";
+    } else {
+        prevButton.style.display = "block";
+    }
+
+    if (currentStep < 4) {
+    nextButton.style.display = "block";
+    reviewButton.style.display = "none"; // Hide the Submit button for steps 1, 2, and 3
+} else {
+    nextButton.style.display = "none";
+    reviewButton.style.display = "block"; // Show the Submit button for step 4
+}
+
+    const progress = ((currentStep - 1) / (steps.length - 1)) * 100 + "%";
+    progressBar.style.width = progress;
+}
+
+function nextStep() {
+    if (currentStep < 4) {
+        currentStep++;
+        updateSteps();
+    } 
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        currentStep--;
+        updateSteps();
+    }
+}
+const step1Text = "How can our local experts help you?";
+const step2Text = "Where do you want to go?";
+const step3Text = "When do you want to go?";
+
+// Function to open the review modal
+function openReviewModal() {
+    const modal = document.getElementById("reviewModal");
+    modal.style.display = "block";
+
+    const selectedOptionsContainer = document.getElementById("reviewDetails");
+    selectedOptionsContainer.innerHTML = "";
+   
+
+     const step1Text = "How can our local experts help you?";
+    const step1TextElement = document.createElement("h3");
+    step1TextElement.textContent = step1Text;
+    selectedOptionsContainer.appendChild(step1TextElement);
+    // Step 1: How can our local experts help you?
+    const step1RadioOptions = document.querySelectorAll('input[name="tripType"]:checked');
+    step1RadioOptions.forEach(option => {
+        const optionLabel = document.querySelector(`label[for="${option.id}"]`);
+        if (optionLabel) {
+            const optionText = optionLabel.textContent.trim();
+            const li = document.createElement("li");
+            li.textContent = optionText;
+            selectedOptionsContainer.appendChild(li);
+        }
+    });
+    
+    const step2Text = "Where do you want to go?";
+    const step2TextElement = document.createElement("h3");
+    step2TextElement.textContent = step2Text;
+    selectedOptionsContainer.appendChild(step2TextElement);
+    // Step 2: When do you want to go?
+    const destinationSearchInput = document.getElementById("destinationSearch");
+    const destinationText = destinationSearchInput.value.trim();
+    if (destinationText !== "") {
+        const li = document.createElement("li");
+        li.textContent = `Destinations: ${destinationText}`;
+        selectedOptionsContainer.appendChild(li);
+    }
+   
+    const step3Text = "When do you want to go?";
+    const step3TextElement = document.createElement("h3");
+    step3TextElement.textContent = step3Text;
+    selectedOptionsContainer.appendChild(step3TextElement);
+    // Step 3: When do you want to go?
+    const selectedDuration = document.querySelector('.selected-duration');
+    if (selectedDuration) {
+        const durationText = selectedDuration.textContent.trim();
+        const li = document.createElement("li");
+        li.textContent = `Duration: ${durationText}`;
+        selectedOptionsContainer.appendChild(li);
+    }
+
+    const selectedMonths = document.querySelectorAll('.selected-month');
+    if (selectedMonths.length > 0) {
+        const monthsText = Array.from(selectedMonths).map(month => month.textContent.trim()).join(', ');
+        const li = document.createElement("li");
+        li.textContent = `Months: ${monthsText}`;
+        selectedOptionsContainer.appendChild(li);
+    }
+
+
+  
+
+    // If no options are selected, display a message
+    if (selectedOptionsContainer.children.length === 1) {
+        selectedOptionsContainer.innerHTML += "<p>No options selected.</p>";
+    }
+}
+// Function to close the review modal
+function closeReviewModal() {
+    const modal = document.getElementById("reviewModal");
+    modal.style.display = "none";
+}
+
+// Function to submit and navigate back to the home page
+function submitAndNavigateHome() {
+    alert("Form submitted. Redirecting to the home page.");
+    // Perform any necessary form submission actions here
+
+    // Redirect to the home page (you can modify the URL as needed)
+    window.location.href = "travel.html";
+}
+
+// Function to handle the "Review" button click
+function reviewSelections() {
+    // Add code to populate the selected options in the reviewDetails div
+    openReviewModal();
+}
+
+// Function to handle the "Submit" button click in the review modal
+function submitReview() {
+    // Add code to submit the form or perform any other actions
+    // You can also close the modal if needed
+    closeReviewModal();
+}
+
+// Add event listeners for button clicks
+document.getElementById("reviewButton").addEventListener("click", reviewSelections);
+document.getElementById("submitReview").addEventListener("click", submitReview);
+
+// Hide the progress bar initially
+document.querySelector(".indicator").style.width = "0%";
+
+// Show the first step initially
+updateSteps();
+const radioInputs = document.querySelectorAll("input[type='radio']");
+    radioInputs.forEach(input => {
+        input.addEventListener("change", function() {
+            const nextButton = document.getElementById("nextButton");
+            nextButton.disabled = false;
+        });
+    });
+        </script>
+        </body>
+    </html>

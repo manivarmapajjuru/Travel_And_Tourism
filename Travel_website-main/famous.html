@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        /* CSS styles for the image gallery */
+        .places-text h2 {
+            text-align: center;
+            font-family: Barlow Condensed;
+            font-size: 30px;
+            color: #191d34;
+            letter-spacing: 1px;
+            padding-top: 50px;
+        }
+
+        .image-gallery {
+            text-align: center;
+            padding-top: -10px;
+        }
+
+        .carousel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .carousel img {
+            width: calc(20% - 10px); /* Set the width to 33.33% with spacing in between */
+            height: auto;
+            max-height: 300px; /* Adjust the maximum height as needed */
+            margin-bottom: 10px; /* Add space between rows */
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="places-text">
+        <h2>Top Destinations</h2>
+    </div>
+    <div class="image-gallery">
+        <div class="carousel">
+            <img src="1.jpg" alt="Image 1">
+            <img src="2.jpg" alt="Image 2">
+            <img src="3.jpg" alt="Image 3">
+            <img src="4.jpg" alt="Image 4">
+            <img src="5.jpg" alt="Image 5">
+            <img src="6.jpg" alt="Image 6">
+            <img src="6.jpg" alt="Image 7">
+            <img src="4.jpg" alt="Image 8">
+            <img src="6.jpg" alt="Image 9">
+            <img src="6.jpg" alt="Image 10">
+        </div>
+    </div>
+</body>
+</html>

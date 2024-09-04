@@ -1,0 +1,326 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------Scroll Bar-----------------------*/
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fde65e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fde02f;
+}
+
+/*========================Nav Bar=========================*/
+.nav-bar {
+  background-color: white; /* Set background color */
+  color: black; /* Text color */
+  padding: 10px; /* Add padding to the navigation bar */
+  display: flex; /* Make it a flex container */
+  align-items: center; /* Center content vertically */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Style for the logo */
+.logo {
+  font-size: 30px; /* Adjust font size as needed */
+  font-style: italic;
+  font-weight: bold; /* Make the logo bold */
+  margin-right: 20px; /* Add margin to separate logo from links */
+  margin-left: 80px;
+  color: yellow;
+}
+
+/* Style for the navigation links */
+.nav-links {
+  list-style: none; /* Remove list bullets */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-left: 600px;
+  font-size: 20px;
+}
+
+.nav-links li {
+  margin: 0 20px; /* Add margin between navigation links */
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+}
+
+
+/*=============================Banner=============================*/
+.banner {
+  background-image: url("https://i.postimg.cc/sg0yR01k/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*overflow: hidden;*/
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  /*background-size: 100%;*/
+}
+
+.banner-text-item {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-heading {
+  flex: 1;
+}
+
+.banner-heading h1 {
+  font-size: 100px;
+  font-weight: normal;
+  color: #fde02f;
+  font-family: Satisfy;
+}
+
+.banner-text-item .form {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 70%;
+  padding: 1% 2%;
+}
+
+.banner-text-item input,
+.banner-text-item .date,
+.banner-text-item .book {
+  padding: 15px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-family: Roboto;
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+}
+
+.banner-text-item input {
+  width: 50%;
+  flex: 2;
+}
+
+.banner-text-item .date {
+  width: 20%;
+  flex: 1;
+}
+
+.banner-text-item .book {
+  width: 20%;
+  flex: 1;
+}
+
+.banner-text-item .book {
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  padding: 15px;
+  cursor: pointer;
+  background-color: #fde02f;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Barlow Condensed";
+  width: 20%;
+}
+
+
+/*=============================Places===============================*/
+.places-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.places-text h2 {
+  font-family: Barlow Condensed;
+  font-size: 10px;
+  color: #191d34;
+  letter-spacing: 1px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 3px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 10%;
+  height: auto;
+}
+
+.card img {
+  max-width: 10%;
+  height: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cards .text {
+  padding: 20px;
+  font-family: Barlow Condensed;
+  line-height: 20px;
+}
+
+.cards .card-box {
+  display: flex;
+  flex-flow: row;
+  background-color: #fde02f;
+  font-size: 3px;
+  font-family: Roboto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cards .time {
+  flex: 1;
+}
+
+.cards .location {
+  flex: 2;
+}
+
+.cards .cost {
+  color: #4cafad;
+  font-size: 50px;
+}
+
+/*------------Zoom in Photos--------------*/
+.zoom-img {
+  float: left;
+  position: relative;
+  width: 10%;
+  height: 3px;
+  overflow: hidden;
+}
+
+.zoom-img .img-card {
+  position: absolute;
+  overflow: hidden;
+}
+
+.img-card img {
+  -webkit-transition: 0.8s ease;
+  transition: 0.8s ease;
+}
+
+.card:hover .zoom-img img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+/*===============Footer===================*/
+.footer {
+  background-image: url("https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293781/pine-tree_mq2sgp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.footer::before {
+  position: absolute;
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 36, 0.8);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.footer .links {
+  position: relative;
+  color: #fff;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.links ul {
+  list-style-type: none;
+}
+
+.links h3 {
+  font-family: Barlow Condensed;
+  font-weight: normal;
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.links li {
+  font-family: Roboto;
+  cursor: pointer;
+  padding: 15px 0;
+}
+
+.links li:hover {
+  color: #ffa801;
+}
+

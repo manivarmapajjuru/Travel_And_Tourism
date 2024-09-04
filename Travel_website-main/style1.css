@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.package-card {
+    display: flex;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.package-details {
+    flex: 2;
+    padding: 20px;
+}
+
+.package-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.duration {
+    font-size: 16px;
+    color: #666;
+}
+
+.features {
+    display: flex;
+    flex-direction: row; /* Display features in a row */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.feature img {
+    max-width: 20px;
+    max-height: 20px;
+    margin-right: 5px;
+}
+
+.feature-name {
+    font-size: 14px;
+}
+
+.package-details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.package-image {
+    flex: 1;
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.package-image img {
+    width: 100%;
+    height: auto;
+}
